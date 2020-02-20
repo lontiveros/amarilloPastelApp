@@ -1,3 +1,5 @@
 export const environment = {
-  production: false
+	production: false,
+	// Paste firebase info.
+	firebase: {}
 };
