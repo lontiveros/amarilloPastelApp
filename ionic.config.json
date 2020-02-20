@@ -1,0 +1,7 @@
+{
+  "name": "amarilloPastel",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
