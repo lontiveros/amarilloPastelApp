@@ -16,6 +16,7 @@ import { environment } from 'src/environments/environment';
 // Firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule, FirestoreSettingsToken } from "@angular/fire/firestore";
+import { ProductsService } from './services/products.service';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -31,7 +32,8 @@ import { AngularFirestoreModule, FirestoreSettingsToken } from "@angular/fire/fi
 		StatusBar,
 		SplashScreen,
 		{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-		{ provide: FirestoreSettingsToken, useValue: {} }
+		{ provide: FirestoreSettingsToken, useValue: {} },
+		ProductsService
 	],
 	bootstrap: [AppComponent]
 })
