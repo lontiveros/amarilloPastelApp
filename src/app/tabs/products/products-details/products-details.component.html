@@ -1,3 +1,27 @@
-<p>
-  products-details works!
-</p>
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>        
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{product.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen class="ion-padding">
+  <ion-slides mode="md" pager="md" scrollbar="md">
+    <ion-slide>
+      <img src="assets/icon/cake.svg" />
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/icon/cakes.svg" />
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/icon/cupcakes.svg" />
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/icon/donut.svg" />
+    </ion-slide>
+  </ion-slides>
+  <p>{{product.description}}</p>
+</ion-content>
