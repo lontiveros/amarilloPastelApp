@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { ProductTypes } from 'src/app/interfaces/product-types';
+import { ModalController } from '@ionic/angular';
+import { ProductsDetailsComponent } from '../products-details/products-details.component';
 
 @Component({
   selector: 'app-product-types',
@@ -10,8 +13,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ProductTypesComponent implements OnInit {
 
   public category: string = "";
+  public productTypes: Array<ProductTypes>=[];
+  
 
   constructor(private productService: ProductsService,
+              public modalController: ModalController,
               private router: ActivatedRoute) { }
 
   ngOnInit() {
@@ -21,9 +27,20 @@ export class ProductTypesComponent implements OnInit {
 
   loadProducts(category:string){
     this.productService.getProductsByCategory(category).subscribe(_productType => {
-      console.log(_productType);
+      //console.log(_productType);
+      this.productTypes = _productType;
     });
     
+  }
+
+  async openModal(product: ProductTypes) {
+    const modal = await this.modalController.create({
+      component: ProductsDetailsComponent,
+      componentProps: {
+        'product': product
+      }
+    });
+    return await modal.present();
   }
 
 }

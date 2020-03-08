@@ -1,3 +1,29 @@
-<p>
-  product-types works!
-</p>
+<ion-header [translucent]="true">
+	<ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [routerLink]="['/tabs/products']"></ion-back-button>
+    </ion-buttons>     
+		<ion-title>
+			Productos
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+	<ion-header collapse="condense">
+		<ion-toolbar>
+		<ion-title size="large">Productos</ion-title>
+		</ion-toolbar>
+	</ion-header>
+  <ion-list >
+    <ion-item *ngFor="let types of productTypes" button (click)="openModal(types)">
+      <ion-label>
+        <h5>Nombre: {{types.title}}</h5>
+
+        <p>Precio: {{types.price | currency: 'ARS':"symbol-narrow":"1.2-2":"es-AR"}}</p>
+
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

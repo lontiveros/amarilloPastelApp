@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ProductsComponent } from './products.component';
 import { ProductTypesComponent } from './product-types/product-types.component';
+import { ProductsDetailsComponent } from './products-details/products-details.component';
 
 @NgModule({
 	declarations: [
 		ProductsComponent,
-		ProductTypesComponent
+		ProductTypesComponent,
+		ProductsDetailsComponent
 	],
 	imports: [
 		CommonModule,
@@ -19,6 +21,9 @@ import { ProductTypesComponent } from './product-types/product-types.component';
 			{ path: '', component: ProductsComponent },
 			{ path: 'details/:productTypes', component: ProductTypesComponent },
 		])
+	],
+	entryComponents: [
+		ProductsDetailsComponent
 	]
 })
 export class ProductsModule { }

@@ -27,7 +27,7 @@ export class ProductsComponent {
 			this.products = _product;
 			this.loadingController.dismiss();
 		});
-		console.log();
+		//console.log();
 	}
 
 
