@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from 'src/app/services/products.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-types',
@@ -7,8 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductTypesComponent implements OnInit {
 
-  constructor() { }
+  public category: string = "";
 
-  ngOnInit() {}
+  constructor(private productService: ProductsService,
+              private router: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.category= this.router.snapshot.paramMap.get('productTypes');
+    this.loadProducts(this.category.toLowerCase());
+  }
+
+  loadProducts(category:string){
+    this.productService.getProductsByCategory(category).subscribe(_productType => {
+      console.log(_productType);
+    });
+    
+  }
 
 }

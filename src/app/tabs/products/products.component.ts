@@ -27,7 +27,13 @@ export class ProductsComponent {
 			this.products = _product;
 			this.loadingController.dismiss();
 		});
+
+		this.productService.getProductsByCategory("cakes").subscribe(_productType => {
+			console.log(_productType);
+		});
 	}
+
+
 
 	async initLoading() {
 		this.loading = await this.loadingController.create({
