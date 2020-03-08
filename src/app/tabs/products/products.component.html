@@ -13,7 +13,8 @@
 		</ion-toolbar>
 	</ion-header>
 
-	<ion-card *ngFor="let product of products" button>
+	<ion-card *ngFor="let product of products" button [routerLink]="['details', product.title]"
+	routerLinkActive="active">
 		<ion-card-header>
 			<ion-card-title>{{ product.title }}</ion-card-title>
 			<ion-card-subtitle>{{ product.description }}</ion-card-subtitle>
