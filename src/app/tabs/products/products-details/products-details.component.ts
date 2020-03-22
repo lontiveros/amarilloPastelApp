@@ -1,21 +1,26 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { ProductTypes } from 'src/app/interfaces/product-types';
-import { ModalController } from '@ionic/angular';
+import { ModalController, IonSlides } from '@ionic/angular';
 
 @Component({
-  selector: 'app-products-details',
-  templateUrl: './products-details.component.html',
-  styleUrls: ['./products-details.component.scss'],
+	selector: 'app-products-details',
+	templateUrl: './products-details.component.html',
+	styleUrls: ['./products-details.component.scss'],
 })
-export class ProductsDetailsComponent implements OnInit {
+export class ProductsDetailsComponent {
 
-  @Input() product: ProductTypes;
+	@Input() product: ProductTypes;
+	@ViewChild(IonSlides, { static: false }) slider: IonSlides;
 
-  constructor(private modalController: ModalController) { }
+	constructor(
+		private modalController: ModalController
+	) {}
 
-  ngOnInit() {}
+	ionViewWillEnter() {
+		this.slider.update();
+	}
 
-  closeModal() {
-    this.modalController.dismiss();
-  }
+	closeModal() {
+		this.modalController.dismiss();
+	}
 }
