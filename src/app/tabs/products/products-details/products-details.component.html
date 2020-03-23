@@ -1,9 +1,9 @@
 <ion-header translucent>
 	<ion-toolbar>
 		<ion-buttons slot="end">
-		<ion-button (click)="closeModal()">
-			<ion-icon name="close"></ion-icon>        
-		</ion-button>
+			<ion-button (click)="closeModal()">
+				<ion-icon name="close"></ion-icon>        
+			</ion-button>
 		</ion-buttons>
 		<ion-title>{{product.title}}</ion-title>
 	</ion-toolbar>
@@ -25,3 +25,13 @@
 	</ion-slides>
 	<p>{{product.description}}</p>
 </ion-content>
+<ion-footer class="ion-no-border">
+	<ion-toolbar>
+	  <ion-buttons slot="end">
+		  <ion-button (click)="addToCart(product)" size="small" color="primary">
+			  <ion-icon slot="start" name="add"></ion-icon>
+			  Agregar al carrito
+		  </ion-button>
+	  </ion-buttons>
+	</ion-toolbar>
+  </ion-footer>

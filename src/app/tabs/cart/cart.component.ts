@@ -1,14 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { CartService } from 'src/app/services/cart.service';
+import { Cart, CartItem } from 'src/app/domain/Cart';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss'],
+	selector: 'app-cart',
+	templateUrl: './cart.component.html',
+	styleUrls: ['./cart.component.scss'],
 })
-export class CartComponent implements OnInit {
+export class CartComponent {
+	public cartItems: Array<CartItem> = [];
 
-  constructor() { }
+	constructor(
+		private cartService: CartService
+	) { }
 
-  ngOnInit() {}
-
+	ionViewWillEnter() {
+		this.cartItems = this.cartService.getCartItemsList();
+	}
 }

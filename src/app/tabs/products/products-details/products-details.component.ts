@@ -1,6 +1,7 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { ProductTypes } from 'src/app/interfaces/product-types';
 import { ModalController, IonSlides } from '@ionic/angular';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
 	selector: 'app-products-details',
@@ -13,6 +14,7 @@ export class ProductsDetailsComponent {
 	@ViewChild(IonSlides, { static: false }) slider: IonSlides;
 
 	constructor(
+		private cartService: CartService,
 		private modalController: ModalController
 	) {}
 
@@ -22,5 +24,9 @@ export class ProductsDetailsComponent {
 
 	closeModal() {
 		this.modalController.dismiss();
+	}
+
+	addToCart(product) {
+		this.cartService.addItem(product, 1);
 	}
 }

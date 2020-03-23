@@ -12,11 +12,12 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
+import { ProductsService } from './services/products.service';
+import { CartService } from './services/cart.service';
 
 // Firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule, FirestoreSettingsToken } from "@angular/fire/firestore";
-import { ProductsService } from './services/products.service';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -33,7 +34,8 @@ import { ProductsService } from './services/products.service';
 		SplashScreen,
 		{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
 		{ provide: FirestoreSettingsToken, useValue: {} },
-		ProductsService
+		ProductsService,
+		CartService
 	],
 	bootstrap: [AppComponent]
 })

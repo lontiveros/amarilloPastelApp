@@ -19,8 +19,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 			{ path: '', component: CartComponent },
 		])
 	],
-	providers: [
-		CartService
-	]
+	providers: []
 })
 export class CartModule { }

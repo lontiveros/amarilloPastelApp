@@ -11,5 +11,14 @@
 		<ion-toolbar>
 			<ion-title size="large">Carrito</ion-title>
 		</ion-toolbar>
-  	</ion-header>
+	</ion-header>
+	
+	<div class="row" *ngFor="let cartItem of cartItems">
+		<ion-card>
+			<ion-card-header>
+				<ion-card-title>{{ cartItem.name }}</ion-card-title>
+				<ion-card-subtitle>{{ cartItem.amount }}</ion-card-subtitle>
+			</ion-card-header>
+		</ion-card>
+	</div>
 </ion-content>

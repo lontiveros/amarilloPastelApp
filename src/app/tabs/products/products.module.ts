@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { ProductsComponent } from './products.component';
 import { ProductTypesComponent } from './product-types/product-types.component';
 import { ProductsDetailsComponent } from './products-details/products-details.component';
+import { CartService } from 'src/app/services/cart.service';
 
 @NgModule({
 	declarations: [
@@ -24,6 +25,7 @@ import { ProductsDetailsComponent } from './products-details/products-details.co
 	],
 	entryComponents: [
 		ProductsDetailsComponent
-	]
+	],
+	providers: []
 })
 export class ProductsModule { }

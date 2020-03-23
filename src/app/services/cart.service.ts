@@ -13,20 +13,25 @@ export class CartService {
 
 	constructor() { }
 
-	get cartItemsList(): Array<CartItem> {
+	getCartItemsList(): Array<CartItem> {
 		return this.cartItems;
 	}
 
-	get cartItemsCount(): number {
+	getCartItemsCount(): number {
 		return this.cartItems.length;
 	}
 
-	get currentCart(): Cart {
+	getCart(): Cart {
 		return this.cart;
 	}
 
-	addItem(item: CartItem) {
-		this.cartItems.push(item);
+	addItem(item: Product, itemAmount: number) {
+		let cartItem = new CartItem;
+		cartItem.id = item.id;
+		cartItem.name = item.title;
+		cartItem.price = item.price;
+		cartItem.amount = itemAmount;
+		this.cartItems.push(cartItem);
 	}
 
 	// TODO: Implementar edición de un item del carrito.
@@ -34,4 +39,9 @@ export class CartService {
 
 	// TODO: Implementar la eliminación de un item del carrito.
 	removeItem(itemId: string) {}
+
+	clearCart() {
+		this.cart = new Cart;
+		this.cartItems = [];
+	}
 }
